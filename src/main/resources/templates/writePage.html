@@ -37,8 +37,9 @@
             <a href="/qnaBoardList?page=1" class="alink">
                 <input type="button" class="button" value="List"></a>
             <div>
-                <input type="button" class="button" value="Cancel" id="cancelButton">
-                <input type="submit" class="button2" value="Write"></div>
+                <a href="/qnaBoardList?page=1" class="alink">
+                    <input type="button" class="button" value="Cancel" onclick="showMessage('취소하시겠습니까?')"></a>
+                <input type="submit" class="button2" value="Write" onclick="showMessage('등록하시겠습니까?')"></div>
         </div>
         <input type="hidden" name="content" id="content"></form>
 </div>
@@ -47,6 +48,11 @@
 
 <footer th:replace="~{component/footer :: footer}"></footer>
 
+<script>
+    function showMessage(message){
+    alert(message);
+    }
+</script>
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 <!-- Initialize Quill editor -->

@@ -50,17 +50,16 @@ table {
 	display: inline-block;
 	border: 2px solid #F3BAD6;
 	background-color: #EF8BA5;
-	width: 105px;
+	width: 82px;
 	height: 30px;
 	text-decoration: none;
 	color: #ffffff;
 	text-align: center;
 	cursor: pointer;
 	-webkit-text-stroke: 0.1px #EBEBEB;
-	
+	font-weight: bold;
 
 }
-
 .m_box{
 	display: flex;
 	gap: 24px;
@@ -119,6 +118,10 @@ table {
 	margin-bottom: 32px;
 }
 
+.w_bt{
+   display:flex;
+   gap: 8px;
+}
 main{
    min-height: calc(100vh - 198px);
 }

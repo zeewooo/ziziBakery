@@ -27,6 +27,18 @@
         WHERE qnaboard_tb.uid = #{uid}
     </select>
 
+    <update id="updateQnaBoard">
+        UPDATE qnaboard_tb
+        SET title = #{title}, content=#{content}
+        WHERE uid = #{uid}
+    </update>
+
+    <delete id="deleteQnaBoard" parameterType="int">
+        DELETE FROM qnaboard_tb
+        WHERE uid = #{uid}
+    </delete>
+
+
     <insert id="insertQnaBoard">
         INSERT INTO qnaboard_tb(category_uid,title,content,user_uid)
         VALUES

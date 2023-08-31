@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>ZIZI BAKERY</title>
+  <link rel="stylesheet" href="/css/writePage.css" th:href="@{/css/writePage.css}"/>
+  <link rel="stylesheet" href="/css/global.css" th:href="@{/css/global.css}"/>
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+</head>
+<body>
+<header  th:replace="~{component/header :: header}"></header>
+
+<main>
+  <section th:replace="~{component/main :: main}"></section>
+  <section th:replace="~{component/main :: drop}"></section>
+
+</main>
+<div class="updatePage">
+  <form th:action="@{/updatePost/{uid}(uid=${post.uid})}" method="post" onsubmit="test()">
+    <div>
+      <select name="category_uid" class="category">
+        <option value="1">배송문의</option>
+        <option value="2">교환/반품</option>
+        <option value="3">주문조회</option>
+        <option value="4">취소문의</option>
+      </select>
+    </div>
+
+    <input type="text" class="title_field" name="title" th:value="${post.title}" placeholder="TITLE">
+
+    <div>
+      <div id="editor" th:utext="${post.content}"></div>
+    </div>
+
+    <div id="button">
+
+      <a th:href="@{/qnaBoardList?page=1}" class="alink">
+        <input type="button" class="button" value="CANCEL" onclick="return confirm('취소하시겠습니까?')"></a>
+      <div>
+        <input type="submit" class="button2" value="UP DATE" onclick="return confirm('수정하시겠습니까?')"></div>
+    </div>
+    <input type="hidden" name="content" id="content" th:value="${post.content}"></form>
+</div>
+
+
+
+<footer th:replace="~{component/footer :: footer}"></footer>
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+   var quill = new Quill('#editor', {theme: 'snow'});
+    const test = () =>{
+    let content = document.querySelector(".ql-editor").innerHTML;
+    document.querySelector("#content").value = content;
+     }
+  </script>
+</body>
+</html>

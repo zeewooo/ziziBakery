@@ -16,4 +16,12 @@ public class QnaBoardDetailService {
     public QnaBoardDto selectQnaBoardDetail(int uid){
      return boardMapper.selectQnaBoardDetail(uid);
     }
+
+    public void deleteQnaBoard(int uid){
+     boardMapper.deleteQnaBoard(uid);
+
+    }
+    public void updateQnaBoard(QnaBoardDto editedPost){
+     boardMapper.updateQnaBoard((editedPost));
+    }
 }

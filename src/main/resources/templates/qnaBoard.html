@@ -23,7 +23,21 @@
   <div class="content_box" th:text="${post.content}"></div>
 
 
+  <div id="button">
 
+    <a href="/qnaBoardList?page=1" class="alink">
+      <input type="button" class="button" value="LIST"></a>
+    <div class="w_bt">
+      <form th:action="@{/deletePost/{uid}(uid=${post.uid})}" method="post"  onsubmit="return confirm('정말로 삭제하시겠습니까?')">
+        <input type="submit" class="button" value="DELETE">
+
+      </form>
+      <a th:href="@{/updatePost/{uid}(uid=${post.uid})}" class="alink">
+        <input type="submit" class="button2" value="UP DATE"></a>
+
+    </div>
+  </div>
+</div>
 
 
 

@@ -84,14 +84,32 @@ import org.springframework.web.bind.annotation.*;
         }
 
 
-
-
         @GetMapping("/post/{uid}")
         public String showPost(@PathVariable int uid, Model model){
             QnaBoardDto post = qnaBoardDetailService.selectQnaBoardDetail(uid);
             model.addAttribute("post", post);
             return "qnaBoard";
 
+        }
+
+        @GetMapping("/updatePost/{uid}")
+        public String updatePost(@PathVariable int uid,Model model){
+            QnaBoardDto post= qnaBoardDetailService.selectQnaBoardDetail(uid);
+            model.addAttribute("post",post);
+            return "updatePage";
+        }
+
+        @PostMapping("/updatePost/{uid}")
+        public String processUpdatePost(@PathVariable int uid,@ModelAttribute QnaBoardDto editePost){
+            editePost.setUid(uid);
+            qnaBoardDetailService.updateQnaBoard(editePost);
+            return "redirect:/qnaBoardList";
+        }
+
+        @PostMapping("/deletePost/{uid}")
+        public String deletePost(@PathVariable int uid,Model model){
+            qnaBoardDetailService.deleteQnaBoard(uid);
+            return "redirect:/qnaBoardList";
         }
 
 

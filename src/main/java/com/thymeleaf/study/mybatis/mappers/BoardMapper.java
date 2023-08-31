@@ -16,4 +16,7 @@ public interface BoardMapper {
     QnaBoardDto selectQnaBoardDetail(int uid);
 
 
+    void deleteQnaBoard(int uid);
+
+    void updateQnaBoard(QnaBoardDto editedPost);
 }

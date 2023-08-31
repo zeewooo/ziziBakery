@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>ZIZI BAKERY</title>
+  <link rel="stylesheet" href="/css/qnaBoard.css" th:href="@{/css/qnaBoard.css}"/>
+  <link rel="stylesheet" href="/css/global.css" th:href="@{/css/global.css}"/>
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+</head>
+<body>
+<header  th:replace="~{component/header :: header}"></header>
+<main>
+  <section th:replace="~{component/main :: main}"></section>
+  <section th:replace="~{component/main :: drop}"></section>
+
+<div class="board">
+  <h1>Q&A</h1>
+  <div class="m_box">
+    <div class="category_box" th:text="${post.c_name}"></div>
+    <div class="id_box" th:text="${post.id}"></div>
+  </div>
+  <div class="title_box" th:text="${post.title}"></div>
+  <div class="content_box" th:text="${post.content}"></div>
+
+
+
+
+
+
+
+</main>
+<footer th:replace="~{component/footer :: footer}"></footer>
+<script  th:inline="javascript">
+  const contentBox = document.querySelector(".content_box");
+  const contentData = /*[[${post.content}]]*/;
+  contentBox.innerHTML = contentData;
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+
+<section th:fragment="main">
+  <ul class="sub">
+    <li><a href="/join">Join</a></li>
+    <li><a href="/login">Login</a></li>
+    <li><a href="#">Cart</a></li>
+  </ul>
+</section>
+
+
+<section th:fragment="drop">
+  <ul class="drop">
+  <li><a href="/bakery">MENU</a>
+    <ul class="dropdown_contents">
+      <li class="li_style"><a href="/bakery">BAKERY</a></li>
+      <li><a href="/cake">CAKE</a></li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#">NEW</a>
+    <ul class="dropdown_contents">
+      <li class="li_style"><a href="#">SEASON</a></li>
+    </ul>
+  </li>
+  <li><a href="#">BEST</a>
+    <ul class="dropdown_contents">
+      <li class="li_style"><a href="#">WEEKLY BEST</a></li>
+    </ul>
+  </li>
+  <li><a href="/faqPage">COMMUNITY</a>
+    <ul class="dropdown_contents">
+      <li class="li_style"><a href="/faqPage">FAQ</a></li>
+      <li><a href="/qnaBoardList">Q&A</a></li>
+    </ul>
+  </li>
+</ul></section>
+
+
+
+
+</body>
+</html>

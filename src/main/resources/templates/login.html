@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>ZIZI BAKERY</title>
+  <link rel="stylesheet" href="/css/login.css" th:href="@{/css/login.css}"/>
+  <link rel="stylesheet" href="/css/global.css" th:href="@{/css/global.css}"/>
+</head>
+<body>
+<header  th:replace="~{component/header :: header}"></header>
+
+<main>
+  <section th:replace="~{component/main :: main}"></section>
+  <div class="container">
+    <h1>LOGIN</h1>
+    <form action="/login" method="post">
+      <div class="login_box">
+        <p class="box">ID</p>
+        <input type="text" class="content_field" name="id">
+      </div>
+      <div class="login_box">
+        <p class="box">PW</p>
+        <input type="password" class="content_field" name="pw" >
+
+      </div>
+
+      <div id="button1">
+        <a href="/join" class="alink">
+          <input type="button" class="button" value="JOIN">
+        </a>
+
+        <a href="/" class="alink">
+          <input type="submit" id="input_field" value="LOGIN"></a>
+      </div>
+    </form>
+  </div>
+</main>
+<footer th:replace="~{component/footer :: footer}"></footer>
+
+</body>
+</html>

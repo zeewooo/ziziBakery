@@ -1,0 +1,74 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* css 리셋코드 */
+
+.questions {
+	display: flex;
+	justify-content: space-around;
+}
+
+
+.question > .faq {
+
+	border:1px solid #Ef8ba5;
+	background-color: #ffff;
+	width: 400px;
+	height: 60px;
+	font-size: 14px;
+	color: #5C5C5C;
+	margin-bottom: 24px;
+	display:flex;
+	justify-content:space-around;
+	align-items: center;
+	flex-direction: column;
+	cursor: pointer;
+
+
+}
+
+main{
+   min-height: calc(100vh - 198px);
+}

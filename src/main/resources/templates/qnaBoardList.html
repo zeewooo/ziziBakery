@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>ZIZI BAKERY</title>
+        <link
+            rel="stylesheet"
+            href="/css/qnaBoardList.css"
+            th:href="@{/css/qnaBoardList.css}"/>
+        <link rel="stylesheet" href="/css/global.css" th:href="@{/css/global.css}"/>
+    </head>
+    <body>
+        <header th:replace="~{component/header :: header}"></header>
+
+        <main>
+            <section th:replace="~{component/main :: main}"></section>
+            <section th:replace="~{component/main :: drop}"></section>
+
+            <div class="board">
+                <h1>Q&A</h1>
+                <div class="m_title">
+                    <ul>
+                        <li class="uid_s">NO.</li>
+                        <li class="name_s">CATEGORY</li>
+                        <li class="title_s">SUBJECT</li>
+                        <li class="id_s1">WRITER</li>
+                        <li class="regdate_s1">DATE</li>
+
+                    </ul>
+                </div>
+                <div class="s_title">
+                    <ul class="u_title" th:each="array : ${boardList}">
+                        <li class="uid_s" th:text="${array.uid}"></li>
+                        <li class="name_s" th:text="${array.c_name}"></li>
+                        <li class="title_s"> <a th:href="@{/post/{uid}(uid=${array.uid})}" th:text="${array.title}"></a></li>
+                        <li class="id_s" th:text="${array.id}"></li>
+                        <li class="regdate_s" th:text="${array.regdate}"></li>
+
+                    </ul>
+                </div>
+
+                <div class="write_bt">
+                    <a href="/writePage">
+                        <input type="button" class="button" value="Write"></a>
+                </div>
+
+                <div class="bt">
+                    <ul class="pagination">
+                        <li th:if="${pagingDto.startPage > 1}">
+                            <a th:href="@{/qnaBoardList(page=${pagingDto.startPage-1})}">&laquo;</a>
+                        </li>
+                        <li th:if="${pagingDto.page > 1}">
+                            <a th:href="@{/qnaBoardList(page=${pagingDto.page-1})}">&lt;</a>
+                        </li>
+
+                        <li
+                            th:each="pageNumber : ${#numbers.sequence(pagingDto.startPage, pagingDto.endPage)}"
+                            th:if="${pagingDto.totalPages>=pageNumber}">
+                            <span
+                                th:if="${pageNumber == pagingDto.page}"
+                                th:text="${pageNumber}"
+                                class="active"></span>
+                            <a
+                                th:unless="${pageNumber == pagingDto.page}"
+                                th:href="@{/qnaBoardList(page=${pageNumber})}"
+                                th:text="${pageNumber}"></a>
+                        </li>
+                        <li th:if="${pagingDto.page < pagingDto.totalPages}">
+                            <a th:href="@{/qnaBoardList(page=${pagingDto.page+1})}">&gt;</a>
+                        </li>
+                        <li th:if="${pagingDto.endPage < pagingDto.totalPages}">
+                            <a th:href="@{/qnaBoardList(page=${pagingDto.endPage+1})}">&raquo;</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer th:replace="~{component/footer :: footer}"></footer>
+
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ZIZI BAKERY</title>
+    <link rel="stylesheet" href="/css/cakeAndBakery.css" th:href="@{/css/cakeAndBakery.css}"/>
+    <link rel="stylesheet" href="/css/global.css" th:href="@{/css/global.css}"/>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+</head>
+<body>
+<header  th:replace="~{component/header :: header}"></header>
+<main>
+    <section th:replace="~{component/main :: main}"></section>
+    <section th:replace="~{component/main :: drop}"></section>
+    <div class="board">
+        <h1>CAKE</h1>
+        <div class="img_box">
+            <ul class="image_box">
+                <li>
+                    <img class="cake_img" src="/images/딸기핑크케이크.jpg", alt="딸기핑크케이크">
+                    <p class="text">Strawberry cake</p>
+                    <div class="m_bt">
+                        <input type="button" class="button" value="CART">
+                        <input type="button" class="button2" value="BUY">
+                    </div>
+                </li>
+                <li>
+                    <img class="cake_img" src="/images/딸기타르트.jpg", alt="딸기타르트">
+                    <p class="text">Strawberry tart</p>
+                    <div class="m_bt">
+                        <input type="button" class="button" value="CART">
+                        <input type="button" class="button2" value="BUY">
+                    </div>
+                </li>
+                <li>
+                    <img class="cake_img" src="/images/하트케이크.jpg", alt="하트케이크">
+                    <p class="text">Heart cake</p>
+                    <div class="m_bt">
+                        <input type="button" class="button" value="CART">
+                        <input type="button" class="button2" value="BUY">
+                    </div>
+                </li>
+            </ul>
+            <ul class="image_box">
+                <li>
+                    <img class="cake_img" src="/images/라즈베리컵케이크.JPG", alt="라즈베리컵케이크">
+                    <p class="text">Raspberry tart</p>
+                    <div class="m_bt">
+                        <input type="button" class="button" value="CART">
+                        <input type="button" class="button2" value="BUY">
+                    </div>
+                </li>
+                <li>
+                    <img class="cake_img" src="/images/치즈케이크.jpg", alt="치즈케이크">
+                    <p class="text">Cheesecake</p>
+                    <div class="m_bt">
+                        <input type="button" class="button" value="CART">
+                        <input type="button" class="button2" value="BUY">
+                    </div>
+                </li>
+                <li>
+                    <img class="cake_img" src="/images/레터링케이크.jpg", alt="레터링케이크">
+                    <p class="text">Lettering cake</p>
+                    <div class="m_bt">
+                        <input type="button" class="button" value="CART">
+                        <input type="button" class="button2" value="BUY">
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</main>
+
+    <footer th:replace="~{component/footer :: footer}"></footer>
+
+</body>
+</html>
+

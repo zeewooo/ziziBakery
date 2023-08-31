@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ZIZI BAKERY</title>
+    <link rel="stylesheet" href="/css/main.css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" href="/css/global.css" th:href="@{/css/global.css}"/>
+</head>
+<body>
+    <header  th:replace="~{component/header :: header}">
+    </header>
+    <main>
+        <section th:replace="~{component/main :: main}"></section>
+        <section th:replace="~{component/main :: drop}"></section>
+
+        <img class="main_img" src="/images/main.jpg",alt="메인이미지">
+
+    </main>
+    <footer th:replace="~{component/footer :: footer}"></footer>
+
+</body>
+</html>

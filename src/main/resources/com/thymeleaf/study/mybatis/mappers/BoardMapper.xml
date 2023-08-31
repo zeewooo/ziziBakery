@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thymeleaf.study.mybatis.mappers.BoardMapper">
+
+    <select id="selectQnaBoard" resultType="com.thymeleaf.study.dto.QnaBoardDto">
+        SELECT qnaboard_tb.uid,category_uid,c_name,id,title,DATE(qnaboard_tb.regdate) AS regdate
+        FROM qnaboard_tb
+        JOIN boardcategory_tb
+        ON qnaboard_tb.category_uid = boardcategory_tb.uid
+        JOIN user_tb
+        ON qnaboard_tb.user_uid = user_tb.uid
+        ORDER BY qnaboard_tb.uid DESC
+        LIMIT #{Count} OFFSET #{offset}
+    </select>
+    <select id="getTotalPostCount" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM qnaboard_tb
+    </select>
+    
+    <select id="selectQnaBoardDetail" resultType="com.thymeleaf.study.dto.QnaBoardDto">
+        SELECT qnaboard_tb.uid,c_name,id,title,content,
+        DATE(qnaboard_tb.regdate) AS regdate
+        FROM qnaboard_tb
+        JOIN boardcategory_tb ON qnaboard_tb.category_uid = boardcategory_tb.uid
+        JOIN user_tb ON qnaboard_tb.user_uid = user_tb.uid
+        WHERE qnaboard_tb.uid = #{uid}
+    </select>
+
+    <insert id="insertQnaBoard">
+        INSERT INTO qnaboard_tb(category_uid,title,content,user_uid)
+        VALUES
+        (#{category_uid},#{title},#{content},2);
+    </insert>
+
+</mapper>

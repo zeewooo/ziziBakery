@@ -34,7 +34,7 @@
 
     <div id="button">
 
-      <a th:href="@{/qnaBoardList?page=1}" class="alink">
+      <a th:href="@{/post/{uid}(uid=${post.uid})}" class="alink">
         <input type="button" class="button" value="CANCEL" onclick="return confirm('취소하시겠습니까?')"></a>
       <div>
         <input type="submit" class="button2" value="UP DATE" onclick="return confirm('수정하시겠습니까?')"></div>

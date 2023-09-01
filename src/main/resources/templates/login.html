@@ -13,7 +13,7 @@
   <section th:replace="~{component/main :: main}"></section>
   <div class="container">
     <h1>LOGIN</h1>
-    <form action="/login" method="post">
+    <form th:action="@{/login}" method="post">
       <div class="login_box">
         <p class="box">ID</p>
         <input type="text" class="content_field" name="id">

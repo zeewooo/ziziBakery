@@ -38,8 +38,8 @@
                 <input type="button" class="button" value="List"></a>
             <div>
                 <a href="/qnaBoardList?page=1" class="alink">
-                    <input type="button" class="button" value="Cancel" onclick="showMessage('취소하시겠습니까?')"></a>
-                <input type="submit" class="button2" value="Write" onclick="showMessage('등록하시겠습니까?')"></div>
+                    <input type="button" class="button" value="Cancel" onclick="return confirm('취소하시겠습니까?')"></a>
+                <input type="submit" class="button2" value="Write" onclick="return confirm('등록하시겠습니까?')"></div>
         </div>
         <input type="hidden" name="content" id="content"></form>
 </div>

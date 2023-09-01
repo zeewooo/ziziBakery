@@ -9,6 +9,8 @@ import com.thymeleaf.study.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
     @Controller public class HomeController {
@@ -61,22 +63,27 @@ import org.springframework.web.bind.annotation.*;
 
 
         @PostMapping("/join")
-        public String join(@ModelAttribute UserDto userDto) {
-            System.out.println(userDto);
-            userService.writeJoin(userDto);
+        public String join(@Validated @ModelAttribute UserDto userDto, BindingResult bindingResult , Model model) {
 
-            return "index";
+            if(bindingResult.hasErrors()){
+                model.addAttribute("userDto",userDto);
+                return "join";
+            }
+            userService.writeJoin(userDto);
+            return "redirect:/";
         }
 
         @GetMapping("/join")
-        public String goJoin() {
+        public String goJoin(Model model) {
+
+            model.addAttribute("userDto",new UserDto());
             return "join";
         }
 
         @PostMapping("/writePage")
         public String writePage(@ModelAttribute QnaBoardDto qnaBoardDto) {
             qnaBoardService.writeQnaBoard(qnaBoardDto);
-            return "redirect:qnaBoardList";
+            return "redirect:/qnaBoardList";
         }
         @GetMapping("/writePage")
         public String goWritePage(){
@@ -106,11 +113,6 @@ import org.springframework.web.bind.annotation.*;
             return "redirect:/qnaBoardList";
         }
 
-        @PostMapping("/deletePost/{uid}")
-        public String deletePost(@PathVariable int uid,Model model){
-            qnaBoardDetailService.deleteQnaBoard(uid);
-            return "redirect:/qnaBoardList";
-        }
 
 
         @RequestMapping("/qnaBoardList")

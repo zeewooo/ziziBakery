@@ -13,33 +13,58 @@
   <section th:replace="~{component/main :: main}"></section>
   <div class="container">
     <h1>WELL COME</h1>
-    <form action="/join" method="post">
+    <form th:action="@{/join}" method="post" th:object="${userDto}" onsubmit="return onSubmit()">
       <div class="join_box">
         <p class="box">ID</p>
-        <input type="text" class="content_field" name="id">
+        <input type="text" class="content_field" name="id" th:field="*{id}">
       </div>
+
       <div class="join_box">
         <p class="box">PW</p>
-        <input type="password" class="content_field" name="pw" >
-
+        <input type="password" class="content_field" name="pw" th:field="*{pw}">
       </div>
+
       <div class="join_box">
         <p class="box">NAME</p>
-        <input type="text" class="content_field" name="user_name" >
-
+        <input type="text" class="content_field" name="user_name" th:field="*{user_name}">
       </div>
+
       <div class="join_box">
         <p class="box">E-MAIL</p>
-        <input type="text" class="content_field" name="e_mail" >
-
+        <input type="email" class="content_field" name="e_mail" th:field="*{e_mail}" >
       </div>
+
 
         <a href="/" class="alink">
           <input type="submit" id="input_field" value="SIGN UP"></a>
+          <div class="errors">
+            <p th:errors="*{id}" class="errors_box"></p>
+            <p th:errors="*{pw}" class="errors_box"></p>
+            <p th:errors="*{user_name}" class="errors_box"></p>
+            <p th:errors="*{e_mail}" class="errors_box"></p>
+          </div>
     </form>
   </div>
 
 </main>
 <footer th:replace="~{component/footer :: footer}"></footer>
+
+<script>
+  const onSubmit = () =>{
+    const idEl = document.querySelector("#id");
+    if(validator.isEmpty(idEl.value)){
+       alert("id를 입력해 주세요.");
+       return false;
+    }else if(!validator.isLength(idEl.value,{ min: 2, max: 8 })){
+       alert("아이디는 2~10자리여야합니다.");
+       return false;
+    }
+
+
+
+
+  }
+</script>
+<script src="https://unpkg.com/validator@latest/validator.min.js"></script>
 </body>
 </html>

@@ -13,14 +13,14 @@
   <section th:replace="~{component/main :: main}"></section>
   <div class="container">
     <h1>LOGIN</h1>
-    <form th:action="@{/login}" method="post">
+    <form th:action="@{/login}" method="post" th:object="${userDto}" onsubmit="return onSubmit()">
       <div class="login_box">
         <p class="box">ID</p>
-        <input type="text" class="content_field" name="id">
+        <input type="text" class="content_field" name="id" th:field="*{id}">
       </div>
       <div class="login_box">
         <p class="box">PW</p>
-        <input type="password" class="content_field" name="pw" >
+        <input type="password" class="content_field" name="pw" th:field="*{pw}">
 
       </div>
 
@@ -31,11 +31,27 @@
 
         <a href="/" class="alink">
           <input type="submit" id="input_field" value="LOGIN"></a>
+
       </div>
+      <div class="errors">
+        <p th:errors="*{id}" class="errors_box"></p>
+        <p th:errors="*{pw}" class="errors_box"></p>
+      </div>
+
     </form>
   </div>
 </main>
 <footer th:replace="~{component/footer :: footer}"></footer>
-
+<script>
+  const onSubmit = () =>{
+    const idEl = document.querySelector("#id");
+    if(validator.isEmpty(idEl.value)){
+       alert("id를 입력해 주세요.");
+       return false;
+    }else if(!validator.isLength(idEl.value,{ min: 2, max: 10 })){
+       alert("아이디는 2~10자리여야합니다.");
+       return false;}
+    }
+</script>
 </body>
 </html>

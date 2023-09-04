@@ -68,3 +68,18 @@ main{
 	color: #ffffff;
 	cursor: pointer;
 	font-weight: bold;
+	}
+
+.errors{
+margin-top: 8px;
+}
+
+
+.errors_box {
+color:#EF8BA5;
+font-size:12px;
+font-weight:normal;
+box-sizing:border-box;
+padding:8px 40px;
+
+}

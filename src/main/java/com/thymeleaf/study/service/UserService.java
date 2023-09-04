@@ -17,4 +17,8 @@ public class UserService {
     public void writeJoin(UserDto userDto) {
         userDao.writeJoin(userDto);
     }
+
+    public void writeLogin(UserDto userDto){
+        userDao.writeLogin(userDto);
+    }
 }

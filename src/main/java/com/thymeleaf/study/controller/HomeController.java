@@ -50,15 +50,19 @@ import org.springframework.web.bind.annotation.*;
         }
 
         @GetMapping("/login")
-        public String goLogin() {
+        public String goLogin(Model model) {
+            model.addAttribute("userDto",new UserDto());
             return "login";
         }
 
         @PostMapping("/login")
-        public String login() {
-
-
-            return "login";
+        public String login(@Validated @ModelAttribute UserDto userDto,BindingResult bindingResult,Model model) {
+            if (bindingResult.hasErrors()){
+                model.addAttribute("userDto",userDto);
+                return "login";
+            }
+            userService.writeLogin(userDto);
+            return " redirect:/";
         }
 
 

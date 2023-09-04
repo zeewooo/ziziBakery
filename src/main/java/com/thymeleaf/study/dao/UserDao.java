@@ -16,4 +16,8 @@ public class UserDao {
     public void writeJoin(UserDto userDto) {
         userMapper.insertUsers(userDto);
     }
+
+    public void writeLogin(UserDto userDto){
+        userMapper.selectUsers(userDto);
+    }
 }

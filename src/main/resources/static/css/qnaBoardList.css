@@ -140,6 +140,7 @@ text-align:center;
 	gap: 32px;
 	align-items: center;
 	font-size: 14px;
+	margin-bottom:24px;
 }
 
 .pagination {

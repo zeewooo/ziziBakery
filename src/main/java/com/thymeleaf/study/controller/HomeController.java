@@ -102,6 +102,11 @@ import org.springframework.web.bind.annotation.*;
             return "qnaBoard";
 
         }
+        @PostMapping("/deletePost/{uid}")
+        public String deletePost(@PathVariable int uid) {
+            qnaBoardDetailService.deleteQnaBoard(uid);
+            return "redirect:/qnaBoardList";
+        }
 
         @GetMapping("/updatePost/{uid}")
         public String updatePost(@PathVariable int uid,Model model){
@@ -116,6 +121,8 @@ import org.springframework.web.bind.annotation.*;
             qnaBoardDetailService.updateQnaBoard(editePost);
             return "redirect:/qnaBoardList";
         }
+
+
 
 
 

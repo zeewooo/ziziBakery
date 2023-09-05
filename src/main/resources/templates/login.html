@@ -50,8 +50,18 @@
        return false;
     }else if(!validator.isLength(idEl.value,{ min: 2, max: 10 })){
        alert("아이디는 2~10자리여야합니다.");
-       return false;}
+       return false;
     }
+     const pwEl = document.querySelector("#pw");
+     const passwordRegex = /^(?=.*[0-9])(?=.*\W)(?=\S+$).{8,}$/;
+     if (validator.isEmpty(pwEl.value)) {
+          alert("비밀번호를 입력해 주세요.");
+          return false;
+    }else if (!passwordRegex.test(pwEl.value)) {
+       alert("비밀번호는 8~16자, 숫자, 특수문자를 사용하세요.");
+       return false;}
+  }
 </script>
+<script src="https://unpkg.com/validator@latest/validator.min.js"></script>
 </body>
 </html>

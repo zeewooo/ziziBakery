@@ -50,7 +50,7 @@
 <footer th:replace="~{component/footer :: footer}"></footer>
 
 <script>
-  const onSubmit = () =>{
+   const onSubmit = () =>{
     const idEl = document.querySelector("#id");
     if(validator.isEmpty(idEl.value)){
        alert("id를 입력해 주세요.");
@@ -59,6 +59,30 @@
        alert("아이디는 2~10자리여야합니다.");
        return false;
     }
+    const pwEl = document.querySelector("#pw");
+     const passwordRegex = /^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\-]{8,16}$/;
+     if (validator.isEmpty(pwEl.value)) {
+          alert("비밀번호를 입력해 주세요.");
+          return false;
+    }else if (!passwordRegex.test(pwEl.value)) {
+       alert("비밀번호는 8~16자, 숫자, 특수문자를 사용하세요.");
+       return false;
+    }
+    const nameEl = document.querySelector("#user_name");
+    if(validator.isEmpty(nameEl.value)){
+       alert("이름을 입력해주세요");
+       return false;
+    }
+    const emailEl = document.querySelector("#e_mail");
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if(validator.isEmpty(emailEl.value)) {
+          alert("이메일을 입력해주세요.");
+          return false;
+    }else if (!emailRegex.test(emailEl.value)) {
+       alert("이메일 형식이 올바르지 않습니다.");
+       return false;
+    }
+
 
 
   }

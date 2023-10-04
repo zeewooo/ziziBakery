@@ -28,26 +28,25 @@ import org.springframework.web.bind.annotation.*;
             this.qnaBoardDetailService = qnaBoardDetailService;
         }
 
-        @RequestMapping("/")
-        public String home() {
+
+        @GetMapping("/")
+        public String home(){
             return "index";
         }
 
-        @RequestMapping("/bakery")
-        public String go_bakery() {
+        @GetMapping("/bakery")
+        public String go_bakery(){
             return "Bakery";
         }
-
-        @RequestMapping("/cake")
-        public String go_cake() {
+        @GetMapping("/cake")
+        public String go_cake(){
             return "Cake";
         }
-
-
-        @RequestMapping("/faqPage")
-        public String faq() {
+        @GetMapping("/faqPage")
+        public String faq(){
             return "faqpage";
         }
+
 
         @GetMapping("/login")
         public String goLogin(Model model) {

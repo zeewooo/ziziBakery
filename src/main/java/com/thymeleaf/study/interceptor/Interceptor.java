@@ -10,15 +10,15 @@ import javax.servlet.http.HttpSession;
 public class Interceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-            throws Exception{
+            throws Exception {
         HttpSession session = request.getSession(false);
-        if (session == null || session.getAttribute("userInfo") == null){
-            response.sendRedirect("/login");
-            return false;
+        if (session == null || session.getAttribute("userInfo") == null) {
+            String requestURI = request.getRequestURI();
+            if (!requestURI.endsWith("/login") && !requestURI.endsWith("/join")) {
+                response.sendRedirect("/login");
+                return false;
+            }
         }
         return true;
-
     }
-
-
 }

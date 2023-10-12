@@ -6,7 +6,8 @@
 <section th:fragment="main">
   <ul class="sub">
     <li><a href="/join">Join</a></li>
-    <li><a href="/login">Login</a></li>
+    <li th:if="${session.userInfo == null}"><a href="/login">Login</a></li>
+    <li th:unless="${session.userInfo == null}"><a href="/logout">Logout</a></li>
     <li><a href="#">Cart</a></li>
   </ul>
 </section>

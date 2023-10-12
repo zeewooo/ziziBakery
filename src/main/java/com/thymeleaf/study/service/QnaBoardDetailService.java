@@ -1,5 +1,6 @@
 package com.thymeleaf.study.service;
 
+import com.thymeleaf.study.domain.QnaBoard;
 import com.thymeleaf.study.dto.QnaBoardDto;
 import com.thymeleaf.study.mybatis.mappers.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,11 @@ public class QnaBoardDetailService {
 
     }
     public void updateQnaBoard(QnaBoardDto editedPost){
-     boardMapper.updateQnaBoard((editedPost));
+        QnaBoard qnaBoard = new QnaBoard();
+        qnaBoard.setTitle(editedPost.getTitle());
+        qnaBoard.setContent(editedPost.getContent());
+        qnaBoard.setUid(editedPost.getUid());
+
+     boardMapper.updateQnaBoard(qnaBoard);
     }
 }

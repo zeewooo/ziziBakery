@@ -19,6 +19,7 @@ public class QnaBoardDto {
     private String id;
     private int currentPage;
     private int totalPages;
+    private int userUid;
 
 
 }

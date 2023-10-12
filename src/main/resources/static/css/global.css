@@ -64,6 +64,7 @@ body {
 
 main{
 	margin: 8px 16px 8px 16px;
+	min-width: 1024px;
 	
 
 }
@@ -231,7 +232,7 @@ main{
 
 
 .board {
- width:1024px;
+ max-width:1024px;
  margin:auto;
 }
 .board > h1 {

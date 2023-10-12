@@ -1,5 +1,6 @@
 package com.thymeleaf.study.dao;
 
+import com.thymeleaf.study.domain.QnaBoard;
 import com.thymeleaf.study.dto.PagingDto;
 import com.thymeleaf.study.dto.QnaBoardDto;
 import com.thymeleaf.study.mybatis.mappers.BoardMapper;
@@ -16,8 +17,8 @@ public class QnaBoardDao {
 public QnaBoardDao(BoardMapper boardMapper) {
         this.boardMapper = boardMapper;
     }
-    public void writeQnaBoard(QnaBoardDto qnaBoardDto){
-      boardMapper.insertQnaBoard(qnaBoardDto);
+    public void writeQnaBoard(QnaBoard qnaBoard){
+      boardMapper.insertQnaBoard(qnaBoard);
     }
 
     public List<QnaBoardDto> selectQnaBoard(PagingDto pagingDto){

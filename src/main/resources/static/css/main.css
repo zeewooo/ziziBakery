@@ -52,7 +52,7 @@ main{
 .main_img {
 	display: flex;
 	margin: 24px auto;
-	min-width: 1024px;
+	max-width: 1024px;
 	height: auto;
 	
 }

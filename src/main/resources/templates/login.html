@@ -13,7 +13,7 @@
   <section th:replace="~{component/main :: main}"></section>
   <div class="container">
     <h1>LOGIN</h1>
-    <form th:action="@{/login}" method="post" th:object="${userDto}" onsubmit="return onSubmit()">
+    <form th:action="@{/login}" method="post" th:object="${loginDto}" onsubmit="return onSubmit()">
       <div class="login_box">
         <p class="box">ID</p>
         <input type="text" class="content_field" name="id" th:field="*{id}">
@@ -34,6 +34,7 @@
 
       </div>
       <div class="errors">
+        <p th:if="${loginError}" th:text="${loginError}" class="errors_box"></p>
         <p th:errors="*{id}" class="errors_box"></p>
         <p th:errors="*{pw}" class="errors_box"></p>
       </div>

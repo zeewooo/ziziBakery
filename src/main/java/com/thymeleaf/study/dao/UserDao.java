@@ -1,5 +1,6 @@
 package com.thymeleaf.study.dao;
 
+import com.thymeleaf.study.domain.User;
 import com.thymeleaf.study.dto.UserDto;
 import com.thymeleaf.study.mybatis.mappers.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,17 @@ public class UserDao {
     public UserDao(UserMapper userMapper) {
         this.userMapper = userMapper;
     }
-    public void writeJoin(UserDto userDto) {
-        userMapper.insertUsers(userDto);
+    public void writeJoin(User user) {
+        userMapper.insertUsers(user);
     }
 
-    public void writeLogin(UserDto userDto){
-        userMapper.selectUsers(userDto);
+    public void writeLogin(User user){
+        userMapper.selectUsers(user);
     }
+
+    public User findUser(String id) {
+
+        return userMapper.findUser(id);
+    }
+
 }

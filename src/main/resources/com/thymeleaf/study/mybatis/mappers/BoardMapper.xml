@@ -42,7 +42,7 @@
     <insert id="insertQnaBoard">
         INSERT INTO qnaboard_tb(category_uid,title,content,user_uid)
         VALUES
-        (#{category_uid},#{title},#{content},2);
+        (#{categoryUid},#{title},#{content},#{userUid});
     </insert>
 
 </mapper>

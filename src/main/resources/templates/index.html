@@ -13,7 +13,7 @@
         <section th:replace="~{component/main :: main}"></section>
         <section th:replace="~{component/main :: drop}"></section>
 
-        <img class="main_img" src="/images/main.jpg",alt="메인이미지">
+        <img class="main_img" th:src="@{/images/main.jpg}" alt="메인이미지">
 
     </main>
     <footer th:replace="~{component/footer :: footer}"></footer>
